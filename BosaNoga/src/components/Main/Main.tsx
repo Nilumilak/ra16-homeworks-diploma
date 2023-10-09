@@ -1,25 +1,23 @@
-import Header from "../Header/Header"
-import Footer from "../Footer/Footer"
-import Banner from "../Banner/Banner"
+import { useAppSelector } from "../../redux/hooks"
+import TopSales from "../TopSales/TopSales"
+import Card from "../Card/Card"
 import { Outlet } from "react-router-dom"
 
 function Main() {
-    return (
+  const state = useAppSelector(state => state.topSales)
+  const topSalesElements = state.topSales.map(item => <Card key={item.id} item={item} />)
+
+  return (
+    <>
+      <TopSales content={(
         <>
-            <Header />
-            <main className="container">
-                <div className="row">
-                    <div className="col">
-                        <Banner />
-                        <section className="top-sales">
-                            <Outlet />
-                        </section>
-                    </div>
-                </div>
-            </main>
-            <Footer />
+          <h2 className="text-center">Хиты продаж!</h2>
+          <div className="row">{topSalesElements}</div>
         </>
-    )
+      )} />
+      <Outlet />
+    </>
+  )
 }
 
 export default Main

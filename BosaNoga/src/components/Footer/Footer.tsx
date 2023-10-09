@@ -1,7 +1,7 @@
-import Information from '../Information/Information'
-import PayingSystems from '../PayingSystems/PayingSystems'
-import Copyright from '../Copyright/Copyright'
-import FooterContacts from '../FooterContacts/FooterContacts'
+import Information from './Information/Information'
+import PayingSystems from './PayingSystems/PayingSystems'
+import Copyright from './Copyright/Copyright'
+import FooterContacts from './FooterContacts/FooterContacts'
 import './Footer.css'
 
 function Footer() {

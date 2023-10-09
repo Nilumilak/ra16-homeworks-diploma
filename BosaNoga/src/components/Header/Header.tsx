@@ -1,4 +1,4 @@
-import Navbar from '../Navbar/Navbar';
+import Navbar from './Navbar/Navbar';
 import * as headerLogo from './img/header-logo.png';
 import './Header.css'
 
