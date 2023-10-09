@@ -11,7 +11,9 @@ function Main() {
                 <div className="row">
                     <div className="col">
                         <Banner />
-                        <Outlet />
+                        <section className="top-sales">
+                            <Outlet />
+                        </section>
                     </div>
                 </div>
             </main>

@@ -1,5 +1,6 @@
-import './Header.css'
+import Navbar from '../Navbar/Navbar';
 import * as headerLogo from './img/header-logo.png';
+import './Header.css'
 
 
 function Header() {
@@ -12,20 +13,7 @@ function Header() {
                             <img src={headerLogo.default} alt="Bosa Noga" />
                         </a>
                         <div className="collapse navbar-collapse" id="navbarMain">
-                            <ul className="navbar-nav mr-auto">
-                                <li className="nav-item active">
-                                    <a className="nav-link" href="/">Главная</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="/catalog.html">Каталог</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="/about.html">О магазине</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="/contacts.html">Контакты</a>
-                                </li>
-                            </ul>
+                            <Navbar />
                             <div>
                                 <div className="header-controls-pics">
                                     <div data-id="search-expander" className="header-controls-pic header-controls-search"></div>
