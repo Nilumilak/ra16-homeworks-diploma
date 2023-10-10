@@ -7,7 +7,6 @@ import AboutStore from './components/AboutStore/AboutStore'
 import Contacts from './components/Contants/Contacts'
 import ErrorElement from './components/ErrorElement/ErrorElement'
 import Catalog from './components/Catalog/Catalog'
-import { loader as catalogItemsLoader } from './components/Catalog/CatalogItems/loader'
 
 const router = createBrowserRouter([
   {
@@ -22,12 +21,6 @@ const router = createBrowserRouter([
           {
             path: '/',
             element: <Catalog />,
-            loader: catalogItemsLoader
-          },
-          {
-            path: 'category/:categoryId',
-            element: <Catalog />,
-            loader: catalogItemsLoader
           }
         ]
       },

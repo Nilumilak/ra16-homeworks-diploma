@@ -15,6 +15,7 @@ type CatalogItemState = {
     error: string | null
     offset: number
     currentCategoryId: number
+    hasMoreItems: boolean
 }
 
 const initialState: CatalogItemState = {
@@ -22,7 +23,8 @@ const initialState: CatalogItemState = {
     loading: false,
     error: null,
     offset: 0,
-    currentCategoryId: 0
+    currentCategoryId: 0,
+    hasMoreItems: true
 }
 
 const catalogItemsSlice = createSlice({
@@ -43,7 +45,10 @@ const catalogItemsSlice = createSlice({
             state.catalogItems.push(...catalogItems)
             state.loading = false
             state.error = null
-            state.offset += action.payload.catalogItems.length
+            state.offset += catalogItems.length
+            if (catalogItems.length < 6) {
+                state.hasMoreItems = false
+            }
         },
         changeCurrentCategory: (state, action: PayloadAction<{ categoryId: number }>) => {
             const categoryId = action.payload.categoryId
@@ -51,6 +56,7 @@ const catalogItemsSlice = createSlice({
                 state.catalogItems = []
                 state.currentCategoryId = categoryId
                 state.offset = 0
+                state.hasMoreItems = true
             }
         },
     }

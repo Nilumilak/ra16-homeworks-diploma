@@ -1,6 +1,6 @@
 import { takeLatest, put, call, select } from 'redux-saga/effects'
 import type { PutEffect, CallEffect, ForkEffect, SelectEffect } from 'redux-saga/effects'
-import { getCatalogItemsFailure, getCatalogItemsRequest, getCatalogItemsSuccess, changeCurrentCategory } from '../redux/slices/catalogItemsSlice'
+import { getCatalogItemsFailure, getCatalogItemsRequest, getCatalogItemsSuccess } from '../redux/slices/catalogItemsSlice'
 import { getCatalogItems } from '../api/services'
 import type { CatalogItemType } from '../redux/slices/catalogItemsSlice'
 import { RootState } from '../redux/store'

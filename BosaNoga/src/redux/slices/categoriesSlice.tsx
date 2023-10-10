@@ -32,8 +32,8 @@ const categoriesSlice = createSlice({
             state.error = error.message
         },
         getCategoriesSuccess: (state, action: PayloadAction<{ categories: CategorieType[] }>) => {
-            const topSales = action.payload.categories
-            state.categories = topSales
+            const categories = action.payload.categories
+            state.categories = categories
             state.loading = false
             state.error = null
         },
