@@ -2,11 +2,11 @@ import { createBrowserRouter } from 'react-router-dom'
 import RootElement from './components/RootElement/RootElement'
 import TopSales from './components/TopSales/TopSales'
 import Main from './components/Main/Main'
-import { loader as mainLoader } from './components/Main/loader'
 import AboutStore from './components/AboutStore/AboutStore'
 import Contacts from './components/Contants/Contacts'
 import ErrorElement from './components/ErrorElement/ErrorElement'
 import Catalog from './components/Catalog/Catalog'
+
 
 const router = createBrowserRouter([
   {
@@ -16,7 +16,6 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Main />,
-        loader: mainLoader,
         children: [
           {
             path: '/',
@@ -26,11 +25,19 @@ const router = createBrowserRouter([
       },
       {
         path: 'about',
-        element: <TopSales content={<AboutStore />}/>,
+        element: <TopSales content={<AboutStore />} />,
       },
       {
         path: 'contacts',
-        element: <TopSales content={<Contacts />}/>,
+        element: <TopSales content={<Contacts />} />,
+      },
+      {
+        path: 'catalog',
+        element: (
+          <>
+            <Catalog hasSearchForm/>
+          </>
+        ),
       },
       {
         path: '*',

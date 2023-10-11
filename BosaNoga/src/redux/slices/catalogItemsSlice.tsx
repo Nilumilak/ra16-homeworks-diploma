@@ -15,6 +15,7 @@ type CatalogItemState = {
     error: string | null
     offset: number
     currentCategoryId: number
+    searchParam: string
     hasMoreItems: boolean
 }
 
@@ -24,6 +25,7 @@ const initialState: CatalogItemState = {
     error: null,
     offset: 0,
     currentCategoryId: 0,
+    searchParam: '',
     hasMoreItems: true
 }
 
@@ -52,16 +54,21 @@ const catalogItemsSlice = createSlice({
         },
         changeCurrentCategory: (state, action: PayloadAction<{ categoryId: number }>) => {
             const categoryId = action.payload.categoryId
-            if (state.currentCategoryId !== categoryId) {
-                state.catalogItems = []
-                state.currentCategoryId = categoryId
-                state.offset = 0
-                state.hasMoreItems = true
-            }
+            state.catalogItems = []
+            state.currentCategoryId = categoryId
+            state.offset = 0
+            state.hasMoreItems = true
+        },
+        changeSearchParam: (state, action: PayloadAction<{ search: string }>) => {
+            const search = action.payload.search
+            state.catalogItems = []
+            state.searchParam = search
+            state.offset = 0
+            state.hasMoreItems = true
         },
     }
 })
 
-export const { getCatalogItemsFailure, getCatalogItemsRequest, getCatalogItemsSuccess, changeCurrentCategory } = catalogItemsSlice.actions
+export const { getCatalogItemsFailure, getCatalogItemsRequest, getCatalogItemsSuccess, changeCurrentCategory, changeSearchParam } = catalogItemsSlice.actions
 export default catalogItemsSlice.reducer
 export type { CatalogItemType }

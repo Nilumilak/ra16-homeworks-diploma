@@ -17,10 +17,10 @@ function isCatalogItemType(data: unknown): data is CatalogItemType[] {
 }
 
 function* handleGetCatalogItemsRequestSaga(): Generator<PutEffect | CallEffect | SelectEffect> {
-  const { offset, currentCategoryId } = yield select((state: RootState) => state.catalogItems)
+  const { offset, currentCategoryId, searchParam } = yield select((state: RootState) => state.catalogItems)
 
   try {
-    const data = yield call(getCatalogItems(String(offset), currentCategoryId))
+    const data = yield call(getCatalogItems(String(offset), currentCategoryId, searchParam))
     if (isCatalogItemType(data)) {
       yield put(getCatalogItemsSuccess({ catalogItems: data }))
     }

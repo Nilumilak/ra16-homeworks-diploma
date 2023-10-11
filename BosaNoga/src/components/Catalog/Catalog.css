@@ -34,7 +34,7 @@
 }
 
 .catalog-search-form .form-control {
-    width: 100%;
+    width: 100% !important;
     height: 100%;
     color: #333333;
     border: none;
