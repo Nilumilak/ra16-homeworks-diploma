@@ -23,14 +23,13 @@ function Catalog ({ hasSearchForm }: CatalogProps): JSX.Element {
       dispatch(changeSearchParam({ search: '' }))
     }
   }, [])
-
   return (
     <section className="catalog">
       <h2 className="text-center">Каталог</h2>
       {hasSearchForm && <CatalogSearchForm />}
       <Categories currentId={state.currentCategoryId} />
       <CatalogItems />
-      {state.hasMoreItems ? <LoadMoreItems /> : null}
+      {state.hasMoreItems ? <LoadMoreItems isActive={state.loading} /> : null}
     </section>
   )
 }

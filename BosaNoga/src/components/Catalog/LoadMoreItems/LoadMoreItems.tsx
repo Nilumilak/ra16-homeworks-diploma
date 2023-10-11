@@ -1,17 +1,22 @@
 import { useAppDispatch } from '../../../redux/hooks'
 import { getCatalogItemsRequest } from '../../../redux/slices/catalogItemsSlice'
 
-function LoadMoreItems (): JSX.Element {
+
+type LoadMoreItemsProps = {
+  isActive: boolean
+}
+
+function LoadMoreItems({ isActive }: LoadMoreItemsProps): JSX.Element {
   const dispatch = useAppDispatch()
 
-  function handleClick (): void {
+  function handleClick(): void {
     dispatch(getCatalogItemsRequest())
   }
 
   return (
-        <div className="text-center">
-            <button onClick={handleClick} className="btn btn-outline-primary">Загрузить ещё</button>
-        </div>
+    <div className="text-center">
+      <button onClick={handleClick} className="btn btn-outline-primary" disabled={isActive} >Загрузить ещё</button>
+    </div>
   )
 }
 

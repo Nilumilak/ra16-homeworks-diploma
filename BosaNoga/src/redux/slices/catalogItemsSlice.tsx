@@ -26,7 +26,7 @@ const initialState: CatalogItemState = {
   offset: 0,
   currentCategoryId: 0,
   searchParam: '',
-  hasMoreItems: true
+  hasMoreItems: false
 }
 
 const catalogItemsSlice = createSlice({
@@ -48,23 +48,21 @@ const catalogItemsSlice = createSlice({
       state.loading = false
       state.error = null
       state.offset += catalogItems.length
-      if (catalogItems.length < 6) {
-        state.hasMoreItems = false
-      }
+      state.hasMoreItems = catalogItems.length == 6
     },
     changeCurrentCategory: (state, action: PayloadAction<{ categoryId: number }>) => {
       const categoryId = action.payload.categoryId
       state.catalogItems = []
       state.currentCategoryId = categoryId
       state.offset = 0
-      state.hasMoreItems = true
+      state.hasMoreItems = false
     },
     changeSearchParam: (state, action: PayloadAction<{ search: string }>) => {
       const search = action.payload.search
       state.catalogItems = []
       state.searchParam = search
       state.offset = 0
-      state.hasMoreItems = true
+      state.hasMoreItems = false
     }
   }
 })
