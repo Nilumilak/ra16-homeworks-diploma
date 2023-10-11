@@ -1,5 +1,5 @@
-function PayingSystems() {
-    return (
+function PayingSystems (): JSX.Element {
+  return (
         <>
             <section>
                 <h5>Принимаем к оплате:</h5>
@@ -13,7 +13,7 @@ function PayingSystems() {
                 </div>
             </section>
         </>
-    )
+  )
 }
 
 export default PayingSystems

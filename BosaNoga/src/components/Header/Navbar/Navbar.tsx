@@ -1,7 +1,7 @@
-import { NavLink } from "react-router-dom"
+import { NavLink } from 'react-router-dom'
 
-function Navbar() {
-    return (
+function Navbar (): JSX.Element {
+  return (
         <ul className="navbar-nav mr-auto">
             <li className="nav-item">
                 <NavLink className="nav-link" to="/">Главная</NavLink>
@@ -16,7 +16,7 @@ function Navbar() {
                 <NavLink className="nav-link" to="contacts">Контакты</NavLink>
             </li>
         </ul>
-    )
+  )
 }
 
 export default Navbar

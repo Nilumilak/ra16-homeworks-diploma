@@ -1,14 +1,14 @@
-import type { TopSaleType } from "../../redux/slices/topSalesSlice"
+import type { TopSaleType } from '../../redux/slices/topSalesSlice'
 
 type CardProps = {
-    item: TopSaleType
-    isCatalogItem: boolean
+  item: TopSaleType
+  isCatalogItem: boolean
 }
 
-function Card({ item, isCatalogItem }: CardProps) {
-    return (
+function Card ({ item, isCatalogItem }: CardProps): JSX.Element {
+  return (
         <div className="col-4">
-            <div className={isCatalogItem ? "card catalog-item-card" : "card"}>
+            <div className={isCatalogItem ? 'card catalog-item-card' : 'card'}>
                 <img src={item.images[0]}
                     className="card-img-top img-fluid" alt={item.title} />
                 <div className="card-body">
@@ -18,11 +18,11 @@ function Card({ item, isCatalogItem }: CardProps) {
                 </div>
             </div>
         </div>
-    )
+  )
 }
 
 Card.defaultProps = {
-    isCatalogItem: false
+  isCatalogItem: false
 }
 
 export default Card

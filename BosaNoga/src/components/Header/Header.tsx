@@ -1,26 +1,25 @@
-import { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import Navbar from './Navbar/Navbar';
-import SearchForm from './SearchForm/SearchForm';
-import * as headerLogo from './img/header-logo.png';
+import { useState, useRef, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import Navbar from './Navbar/Navbar'
+import SearchForm from './SearchForm/SearchForm'
+import * as headerLogo from './img/header-logo.png'
 import './Header.css'
 
+function Header (): JSX.Element {
+  const [activeSearchField, setActiveSearchField] = useState<boolean>(false)
+  const inputRef = useRef<HTMLInputElement>(null)
 
-function Header() {
-    const [activeSearchField, setActiveSearchField] = useState<boolean>(false)
-    const inputRef = useRef<HTMLInputElement>(null)
+  function handleClick (): void {
+    setActiveSearchField(!activeSearchField)
+  }
 
-    function handleClick() {
-        setActiveSearchField(!activeSearchField)
+  useEffect(() => {
+    if (activeSearchField) {
+      inputRef.current?.focus()
     }
+  }, [activeSearchField])
 
-    useEffect(() => {
-        if (activeSearchField) {
-            inputRef.current?.focus()
-        }
-    }, [activeSearchField])
-
-    return (
+  return (
         <header className="container">
             <div className="row">
                 <div className="col">
@@ -46,7 +45,7 @@ function Header() {
                 </div>
             </div>
         </header>
-    )
+  )
 }
 
 export default Header

@@ -1,19 +1,18 @@
-import { useAppDispatch } from "../../../redux/hooks"
-import { getCatalogItemsRequest } from "../../../redux/slices/catalogItemsSlice"
+import { useAppDispatch } from '../../../redux/hooks'
+import { getCatalogItemsRequest } from '../../../redux/slices/catalogItemsSlice'
 
+function LoadMoreItems (): JSX.Element {
+  const dispatch = useAppDispatch()
 
-function LoadMoreItems() {
-    const dispatch = useAppDispatch()
+  function handleClick (): void {
+    dispatch(getCatalogItemsRequest())
+  }
 
-    function handleClick() {
-        dispatch(getCatalogItemsRequest())
-    }
-
-    return (
+  return (
         <div className="text-center">
             <button onClick={handleClick} className="btn btn-outline-primary">Загрузить ещё</button>
         </div>
-    )
+  )
 }
 
 export default LoadMoreItems

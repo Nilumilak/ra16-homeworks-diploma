@@ -1,14 +1,13 @@
 import './Banner.css'
-import * as bannerImg from './img/banner.jpg';
+import * as bannerImg from './img/banner.jpg'
 
-
-function Banner() {
-    return (
+function Banner (): JSX.Element {
+  return (
         <div className="banner">
             <img src={bannerImg.default} className="img-fluid" alt="К весне готовы!" />
             <h2 className="banner-header">К весне готовы!</h2>
         </div>
-    )
+  )
 }
 
 export default Banner

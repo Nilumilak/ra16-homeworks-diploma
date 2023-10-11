@@ -7,6 +7,11 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:react-redux/recommended',
   ],
+  settings: {
+    "react": {
+      "version": "detect"
+    }
+  },
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
   plugins: ['react-refresh', 'react-redux', 'redux-saga'],
@@ -16,7 +21,9 @@ module.exports = {
       { allowConstantExport: true },
     ],
     "@typescript-eslint/consistent-type-definitions": ["error", "type"],
-    "@typescript-eslint/strict-boolean-expressions": 0
+    "@typescript-eslint/strict-boolean-expressions": 0,
+    "react-hooks/exhaustive-deps": 0,
+    "react-refresh/only-export-components": 0
   },
   ignorePatterns: ['vite-env.d.ts', 'vite.config.ts', 'main.tsx', 'backend/']
 }

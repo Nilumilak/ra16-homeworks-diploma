@@ -4,8 +4,8 @@ import Copyright from './Copyright/Copyright'
 import FooterContacts from './FooterContacts/FooterContacts'
 import './Footer.css'
 
-function Footer() {
-    return (
+function Footer (): JSX.Element {
+  return (
         <footer className="container bg-light footer">
             <div className="row">
                 <div className="col">
@@ -20,7 +20,7 @@ function Footer() {
                 </div>
             </div>
         </footer>
-    )
+  )
 }
 
 export default Footer

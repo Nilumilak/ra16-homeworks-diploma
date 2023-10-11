@@ -1,11 +1,12 @@
 import { useEffect } from 'react'
+import { Outlet } from "react-router-dom"
 import { useAppDispatch, useAppSelector } from "../../redux/hooks"
 import TopSales from "../TopSales/TopSales"
 import Card from "../Card/Card"
 import Preloader from "../Preloader/Preloader"
-import { Outlet } from "react-router-dom"
 import { getTopSalesRequest } from '../../redux/slices/topSalesSlice'
 import { getCategoriesRequest } from '../../redux/slices/categoriesSlice'
+
 
 function Main() {
   const dispatch = useAppDispatch()

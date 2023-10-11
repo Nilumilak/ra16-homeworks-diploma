@@ -1,5 +1,5 @@
-function AboutStore() {
-    return (
+function AboutStore (): JSX.Element {
+  return (
         <>
             <h2 className="text-center">О магазине</h2>
             <p>
@@ -32,7 +32,7 @@ function AboutStore() {
                 определиться с покупкой.
             </p>
         </>
-    )
+  )
 }
 
 export default AboutStore

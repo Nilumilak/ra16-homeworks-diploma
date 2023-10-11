@@ -4,7 +4,7 @@ import { getCategoriesFailure, getCategoriesRequest, getCategoriesSuccess } from
 import { getCategoriesList } from '../api/services'
 import type { CategorieType } from '../redux/slices/categoriesSlice'
 
-function isCategoryType(data: unknown): data is CategorieType[] {
+function isCategoryType (data: unknown): data is CategorieType[] {
   if (data instanceof Array) {
     return data.every(item => Object.keys(item).includes('id') &&
       Object.keys(item).includes('title'))
@@ -12,7 +12,7 @@ function isCategoryType(data: unknown): data is CategorieType[] {
   return false
 }
 
-function* handleGetCategoriesRequestSaga(): Generator<PutEffect | CallEffect> {
+function * handleGetCategoriesRequestSaga (): Generator<PutEffect | CallEffect> {
   try {
     const data = yield call(getCategoriesList)
     if (isCategoryType(data)) {
@@ -25,7 +25,7 @@ function* handleGetCategoriesRequestSaga(): Generator<PutEffect | CallEffect> {
   }
 }
 
-function* watchGetCategoriesRequestSaga(): Generator<ForkEffect> {
+function * watchGetCategoriesRequestSaga (): Generator<ForkEffect> {
   yield takeLatest(getCategoriesRequest.type, handleGetCategoriesRequestSaga)
 }
 

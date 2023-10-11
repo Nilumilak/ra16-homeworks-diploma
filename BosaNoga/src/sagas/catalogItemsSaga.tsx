@@ -3,9 +3,9 @@ import type { PutEffect, CallEffect, ForkEffect, SelectEffect } from 'redux-saga
 import { getCatalogItemsFailure, getCatalogItemsRequest, getCatalogItemsSuccess } from '../redux/slices/catalogItemsSlice'
 import { getCatalogItems } from '../api/services'
 import type { CatalogItemType } from '../redux/slices/catalogItemsSlice'
-import { RootState } from '../redux/store'
+import { type RootState } from '../redux/store'
 
-function isCatalogItemType(data: unknown): data is CatalogItemType[] {
+function isCatalogItemType (data: unknown): data is CatalogItemType[] {
   if (data instanceof Array) {
     return data.every(item => Object.keys(item).includes('id') &&
       Object.keys(item).includes('category') &&
@@ -16,7 +16,7 @@ function isCatalogItemType(data: unknown): data is CatalogItemType[] {
   return false
 }
 
-function* handleGetCatalogItemsRequestSaga(): Generator<PutEffect | CallEffect | SelectEffect> {
+function * handleGetCatalogItemsRequestSaga (): Generator<PutEffect | CallEffect | SelectEffect> {
   const { offset, currentCategoryId, searchParam } = yield select((state: RootState) => state.catalogItems)
 
   try {
@@ -31,7 +31,7 @@ function* handleGetCatalogItemsRequestSaga(): Generator<PutEffect | CallEffect |
   }
 }
 
-function* watchGetCatalogItemsRequestSaga(): Generator<ForkEffect> {
+function * watchGetCatalogItemsRequestSaga (): Generator<ForkEffect> {
   yield takeLatest(getCatalogItemsRequest.type, handleGetCatalogItemsRequestSaga)
 }
 

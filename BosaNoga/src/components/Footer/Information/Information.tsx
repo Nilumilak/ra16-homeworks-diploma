@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom'
 
-function Information() {
-    return (
+function Information (): JSX.Element {
+  return (
         <section>
             <h5>Информация</h5>
             <ul className="nav flex-column">
@@ -16,7 +16,7 @@ function Information() {
                 </li>
             </ul>
         </section>
-    )
+  )
 }
 
 export default Information

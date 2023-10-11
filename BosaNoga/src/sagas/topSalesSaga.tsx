@@ -4,7 +4,7 @@ import { getTopSalesFailure, getTopSalesRequest, getTopSalesSuccess } from '../r
 import { getTopSalesList } from '../api/services'
 import type { TopSaleType } from '../redux/slices/topSalesSlice'
 
-function isTopSaleTypeType(data: unknown): data is TopSaleType[] {
+function isTopSaleTypeType (data: unknown): data is TopSaleType[] {
   if (data instanceof Array) {
     return data.every(item => Object.keys(item).includes('id') &&
       Object.keys(item).includes('category') &&
@@ -15,7 +15,7 @@ function isTopSaleTypeType(data: unknown): data is TopSaleType[] {
   return false
 }
 
-function* handleGetTopSalesRequestSaga(): Generator<PutEffect | CallEffect> {
+function * handleGetTopSalesRequestSaga (): Generator<PutEffect | CallEffect> {
   try {
     const data = yield call(getTopSalesList)
     if (isTopSaleTypeType(data)) {
@@ -28,7 +28,7 @@ function* handleGetTopSalesRequestSaga(): Generator<PutEffect | CallEffect> {
   }
 }
 
-function* watchGetTopSalesRequestSaga(): Generator<ForkEffect> {
+function * watchGetTopSalesRequestSaga (): Generator<ForkEffect> {
   yield takeLatest(getTopSalesRequest.type, handleGetTopSalesRequestSaga)
 }
 

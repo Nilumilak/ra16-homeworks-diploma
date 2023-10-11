@@ -1,16 +1,23 @@
-import Card from "../../Card/Card"
-import type { CatalogItemType } from "../../../redux/slices/catalogItemsSlice"
+import { useEffect } from 'react'
+import { useAppDispatch, useAppSelector } from '../../../redux/hooks'
+import Card from '../../Card/Card'
+import Preloader from '../../Preloader/Preloader'
+import { getCatalogItemsRequest } from '../../../redux/slices/catalogItemsSlice'
 
-type CatalogItemsProps = {
-  items: CatalogItemType[]
-}
+function CatalogItems (): JSX.Element {
+  const dispatch = useAppDispatch()
+  const state = useAppSelector(state => state.catalogItems)
 
-function CatalogItems({ items }: CatalogItemsProps) {
-  const catalogItemsElements = items.map(item => <Card key={item.id} item={item} isCatalogItem />)
+  useEffect(() => {
+    dispatch(getCatalogItemsRequest())
+  }, [state.currentCategoryId, state.searchParam])
+
+  const catalogItemsElements = state.catalogItems.map(item => <Card key={item.id} item={item} isCatalogItem />)
 
   return (
     <div className="row">
       {catalogItemsElements}
+      {state.loading && <Preloader />}
     </div>
   )
 }

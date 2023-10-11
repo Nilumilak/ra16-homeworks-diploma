@@ -1,5 +1,5 @@
-function FooterContacts() {
-    return (
+function FooterContacts (): JSX.Element {
+  return (
         <section className="footer-contacts">
             <h5>Контакты:</h5>
             <a className="footer-contacts-phone" href="tel:+7-495-790-35-03">+7 495 79 03 5 03</a>
@@ -10,7 +10,7 @@ function FooterContacts() {
                 <div className="footer-social-link footer-social-link-vk"></div>
             </div>
         </section>
-    )
+  )
 }
 
 export default FooterContacts

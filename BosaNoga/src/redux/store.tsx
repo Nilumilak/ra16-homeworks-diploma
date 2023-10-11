@@ -11,7 +11,7 @@ const store = configureStore({
   reducer: {
     topSales: topSalesSlice,
     categories: categoriesSlice,
-    catalogItems: catalogItemsSlice,
+    catalogItems: catalogItemsSlice
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sagaMiddleware)
 })
