@@ -1,15 +1,14 @@
 import { useAppDispatch } from '../../../redux/hooks'
 import { getCatalogItemsRequest } from '../../../redux/slices/catalogItemsSlice'
 
-
 type LoadMoreItemsProps = {
   isActive: boolean
 }
 
-function LoadMoreItems({ isActive }: LoadMoreItemsProps): JSX.Element {
+function LoadMoreItems ({ isActive }: LoadMoreItemsProps): JSX.Element {
   const dispatch = useAppDispatch()
 
-  function handleClick(): void {
+  function handleClick (): void {
     dispatch(getCatalogItemsRequest())
   }
 

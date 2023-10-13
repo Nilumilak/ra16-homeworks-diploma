@@ -4,6 +4,7 @@ import rootSaga from '../sagas/rootSaga'
 import topSalesSlice from './slices/topSalesSlice'
 import categoriesSlice from './slices/categoriesSlice'
 import catalogItemsSlice from './slices/catalogItemsSlice'
+import cartSlice from './slices/cartSlice'
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -11,7 +12,8 @@ const store = configureStore({
   reducer: {
     topSales: topSalesSlice,
     categories: categoriesSlice,
-    catalogItems: catalogItemsSlice
+    catalogItems: catalogItemsSlice,
+    cart: cartSlice
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sagaMiddleware)
 })

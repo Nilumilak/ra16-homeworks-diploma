@@ -1,11 +1,14 @@
 import { useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { useAppSelector } from '../../redux/hooks'
 import Navbar from './Navbar/Navbar'
 import SearchForm from './SearchForm/SearchForm'
+import CartHeader from './CartHeader/CartHeader'
 import * as headerLogo from './img/header-logo.png'
 import './Header.css'
 
 function Header (): JSX.Element {
+  const state = useAppSelector(state => state.cart)
   const [activeSearchField, setActiveSearchField] = useState<boolean>(false)
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -32,11 +35,7 @@ function Header (): JSX.Element {
                             <div>
                                 <div className="header-controls-pics">
                                     <div onClick={handleClick} data-id="search-expander" className="header-controls-pic header-controls-search"></div>
-                                    {/* <!-- Do programmatic navigation on click to /cart.html --> */}
-                                    <div className="header-controls-pic header-controls-cart">
-                                        <div className="header-controls-cart-full">1</div>
-                                        <div className="header-controls-cart-menu"></div>
-                                    </div>
+                                    <CartHeader quantity={state.items.length} />
                                 </div>
                                 {activeSearchField && <SearchForm inputRef={inputRef} setSelfActive={setActiveSearchField} />}
                             </div>

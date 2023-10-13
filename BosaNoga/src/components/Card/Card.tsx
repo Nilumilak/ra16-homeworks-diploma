@@ -1,4 +1,5 @@
 import type { TopSaleType } from '../../redux/slices/topSalesSlice'
+import { Link } from 'react-router-dom'
 
 type CardProps = {
   item: TopSaleType
@@ -14,7 +15,7 @@ function Card ({ item, isCatalogItem }: CardProps): JSX.Element {
                 <div className="card-body">
                     <p className="card-text">{item.title}</p>
                     <p className="card-text">{item.price} руб.</p>
-                    <a href="/products/1.html" className="btn btn-outline-primary">Заказать</a>
+                    <Link to={`/catalog/${item.id}`} className="btn btn-outline-primary">Заказать</Link>
                 </div>
             </div>
         </div>

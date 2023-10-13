@@ -48,7 +48,7 @@ const catalogItemsSlice = createSlice({
       state.loading = false
       state.error = null
       state.offset += catalogItems.length
-      state.hasMoreItems = catalogItems.length == 6
+      state.hasMoreItems = catalogItems.length === 6
     },
     changeCurrentCategory: (state, action: PayloadAction<{ categoryId: number }>) => {
       const categoryId = action.payload.categoryId
