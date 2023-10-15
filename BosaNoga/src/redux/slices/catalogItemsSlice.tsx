@@ -70,4 +70,4 @@ const catalogItemsSlice = createSlice({
 
 export const { getCatalogItemsFailure, getCatalogItemsRequest, getCatalogItemsSuccess, changeCurrentCategory, changeSearchParam } = catalogItemsSlice.actions
 export default catalogItemsSlice.reducer
-export type { CatalogItemType }
+export type { CatalogItemType, CatalogItemState }
