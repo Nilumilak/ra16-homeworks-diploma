@@ -29,6 +29,15 @@ section {
 }
 
 
+img.card-img-top {
+  max-height: 12em;
+  object-fit: contain;
+}
+
+.spanner {
+  flex-grow: 1;
+}
+
 /* Bootstrap */
 .nav-link.active {
   color: #ff0000;
