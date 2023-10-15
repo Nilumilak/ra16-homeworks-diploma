@@ -29,10 +29,10 @@ const topSalesSlice = createSlice({
       state.loading = true
       state.error = null
     },
-    getTopSalesFailure: (state, action: PayloadAction<{ error: Error }>) => {
+    getTopSalesFailure: (state, action: PayloadAction<{ error: string }>) => {
       const error = action.payload.error
       state.loading = false
-      state.error = error.message
+      state.error = error
     },
     getTopSalesSuccess: (state, action: PayloadAction<{ topSales: TopSaleType[] }>) => {
       const topSales = action.payload.topSales

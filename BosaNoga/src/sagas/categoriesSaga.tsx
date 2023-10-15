@@ -20,7 +20,7 @@ function * handleGetCategoriesRequestSaga (): Generator<PutEffect | CallEffect> 
     }
   } catch (error) {
     if (error instanceof Error) {
-      yield put(getCategoriesFailure({ error }))
+      yield put(getCategoriesFailure({ error: error.message }))
     }
   }
 }

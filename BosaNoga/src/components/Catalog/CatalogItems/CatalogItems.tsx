@@ -3,8 +3,10 @@ import { useAppDispatch, useAppSelector } from '../../../redux/hooks'
 import Card from '../../Card/Card'
 import Preloader from '../../Preloader/Preloader'
 import { getCatalogItemsRequest } from '../../../redux/slices/catalogItemsSlice'
+import NoData from '../../NoData/NoData'
+import ErrorHandler from '../../ErrorHandler/ErrorHandler'
 
-function CatalogItems (): JSX.Element {
+function CatalogItems(): JSX.Element {
   const dispatch = useAppDispatch()
   const state = useAppSelector(state => state.catalogItems)
 
@@ -16,8 +18,15 @@ function CatalogItems (): JSX.Element {
 
   return (
     <div className="row">
-      {catalogItemsElements}
-      {state.loading && <Preloader />}
+      {
+        state.loading ?
+          <Preloader /> :
+          state.error ?
+            <ErrorHandler handleReload={() => dispatch(getCatalogItemsRequest())} /> :
+            catalogItemsElements.length === 0 ?
+              <NoData /> :
+              catalogItemsElements
+      }
     </div>
   )
 }

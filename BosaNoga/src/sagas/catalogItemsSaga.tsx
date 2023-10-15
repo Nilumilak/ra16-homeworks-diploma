@@ -26,7 +26,7 @@ function * handleGetCatalogItemsRequestSaga (): Generator<PutEffect | CallEffect
     }
   } catch (error) {
     if (error instanceof Error) {
-      yield put(getCatalogItemsFailure({ error }))
+      yield put(getCatalogItemsFailure({ error: error.message }))
     }
   }
 }

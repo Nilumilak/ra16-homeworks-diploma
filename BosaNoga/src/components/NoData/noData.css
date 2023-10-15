@@ -1,0 +1,29 @@
+.no-data-container {
+    position: relative;
+    width: 100%;
+    height: 16em;
+    overflow-y: hidden;
+}
+
+
+.no-data-img {
+    position: relative;
+    top: -5em;
+    width: 20em;
+}
+
+.no-data-layer {
+    position: absolute;
+    top: 0;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+}
+
+.no-data-text {
+    position: relative;
+    top: -16em;
+    opacity: 0.8;
+    font-size: 1.3rem;
+}

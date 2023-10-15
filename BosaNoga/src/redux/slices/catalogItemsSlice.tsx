@@ -37,10 +37,11 @@ const catalogItemsSlice = createSlice({
       state.loading = true
       state.error = null
     },
-    getCatalogItemsFailure: (state, action: PayloadAction<{ error: Error }>) => {
+    getCatalogItemsFailure: (state, action: PayloadAction<{ error: string }>) => {
       const error = action.payload.error
       state.loading = false
-      state.error = error.message
+      state.error = error
+      state.hasMoreItems = false
     },
     getCatalogItemsSuccess: (state, action: PayloadAction<{ catalogItems: CatalogItemType[] }>) => {
       const catalogItems = action.payload.catalogItems

@@ -26,10 +26,10 @@ const categoriesSlice = createSlice({
       state.loading = true
       state.error = null
     },
-    getCategoriesFailure: (state, action: PayloadAction<{ error: Error }>) => {
+    getCategoriesFailure: (state, action: PayloadAction<{ error: string }>) => {
       const error = action.payload.error
       state.loading = false
-      state.error = error.message
+      state.error = error
     },
     getCategoriesSuccess: (state, action: PayloadAction<{ categories: CategorieType[] }>) => {
       const categories = action.payload.categories

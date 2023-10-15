@@ -6,6 +6,7 @@ import Card from "../Card/Card"
 import Preloader from "../Preloader/Preloader"
 import { getTopSalesRequest } from '../../redux/slices/topSalesSlice'
 import { getCategoriesRequest } from '../../redux/slices/categoriesSlice'
+import ErrorHandler from '../ErrorHandler/ErrorHandler'
 
 
 function Main() {
@@ -23,7 +24,15 @@ function Main() {
       <TopSales content={(
         <>
           <h2 className="text-center">Хиты продаж!</h2>
-          <div className="row">{state.loading ? <Preloader /> : topSalesElements}</div>
+          <div className="row">
+            {
+              state.loading ?
+                <Preloader /> :
+                state.error ?
+                  <ErrorHandler handleReload={() => dispatch(getTopSalesRequest())} /> :
+                  topSalesElements
+            }
+          </div>
         </>
       )} />
       <Outlet />

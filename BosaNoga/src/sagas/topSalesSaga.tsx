@@ -23,7 +23,7 @@ function * handleGetTopSalesRequestSaga (): Generator<PutEffect | CallEffect> {
     }
   } catch (error) {
     if (error instanceof Error) {
-      yield put(getTopSalesFailure({ error }))
+      yield put(getTopSalesFailure({ error: error.message }))
     }
   }
 }
