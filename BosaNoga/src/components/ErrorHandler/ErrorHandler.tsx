@@ -1,11 +1,11 @@
 import './ErrorHandler.css'
 
 type ErrorHandlerProps = {
-    handleReload: () => void
+  handleReload: () => void
 }
 
-function ErrorHandler({ handleReload }: ErrorHandlerProps) {
-    return (
+function ErrorHandler ({ handleReload }: ErrorHandlerProps): JSX.Element {
+  return (
         <div className="error-handler">
             <span>Что-то пошло не так, нажмите здесь: </span>
             <button onClick={handleReload} type="button" className="btn btn-success">
@@ -15,7 +15,7 @@ function ErrorHandler({ handleReload }: ErrorHandlerProps) {
                 </svg>
             </button>
         </div>
-    )
+  )
 }
 
 export default ErrorHandler
