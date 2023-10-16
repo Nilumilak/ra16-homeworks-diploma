@@ -57,7 +57,7 @@ function CatalogItemDetailed (): JSX.Element {
         }
       }
     ))
-    navigate('/cart')
+    navigate(`${import.meta.env.VITE_BASE_PATH}/cart`)
   }
 
   return (

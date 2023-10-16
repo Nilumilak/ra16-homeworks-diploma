@@ -11,15 +11,15 @@ import Cart from './components/Cart/Cart'
 
 const router = createBrowserRouter([
   {
-    path: '/ra16-homeworks-diploma/',
+    path: `${import.meta.env.VITE_BASE_PATH}/`,
     element: <RootElement />,
     children: [
       {
-        path: '.',
+        path: `${import.meta.env.VITE_BASE_PATH}/`,
         element: <Main />,
         children: [
           {
-            path: '.',
+            path: `${import.meta.env.VITE_BASE_PATH}/`,
             element: <Catalog />
           }
         ]

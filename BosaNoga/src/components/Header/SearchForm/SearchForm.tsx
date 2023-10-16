@@ -19,7 +19,7 @@ function SearchForm ({ inputRef, setSelfActive }: SearchFormProps): JSX.Element 
     if (search.trim()) {
       dispatch(changeSearchParam({ search: search.trim() }))
       setSearch('')
-      navigate('/catalog')
+      navigate(`${import.meta.env.VITE_BASE_PATH}/catalog`)
     }
     setSelfActive(false)
   }

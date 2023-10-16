@@ -27,7 +27,7 @@ function Header (): JSX.Element {
             <div className="row">
                 <div className="col">
                     <nav className="navbar navbar-expand-sm navbar-light bg-light">
-                        <Link className="navbar-brand" to="/">
+                        <Link className="navbar-brand" to={import.meta.env.VITE_BASE_PATH}>
                             <img src={headerLogo.default} alt="Bosa Noga" />
                         </Link>
                         <div className="collapse navbar-collapse" id="navbarMain">

@@ -4,7 +4,7 @@ function Navbar (): JSX.Element {
   return (
         <ul className="navbar-nav mr-auto">
             <li className="nav-item">
-                <NavLink className="nav-link" to="/">Главная</NavLink>
+                <NavLink className="nav-link" end to={`${import.meta.env.VITE_BASE_PATH}/`}>Главная</NavLink>
             </li>
             <li className="nav-item">
                 <NavLink className="nav-link" to="catalog">Каталог</NavLink>

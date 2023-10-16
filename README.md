@@ -1,5 +1,9 @@
 ![CI](https://github.com/Nilumilak/ra16-homeworks-diploma/actions/workflows/ci.yml/badge.svg)
 
+GitHub Page - https://nilumilak.github.io/ra16-homeworks-diploma/
+
+SERVER URL - https://ra16-homeworks-diploma.onrender.com/
+
 # Дипломный проект курса «React»
 
 Дипломный проект представляет собой интернет-магазин обуви. Задача заключается в создании работающего приложения, всеми основными функциями которого можно пользоваться.

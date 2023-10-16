@@ -12,7 +12,7 @@ function CartItem ({ index, item, onItemRemove }: CartItemProps): JSX.Element {
         <tr>
             <td scope="row">{index}</td>
             <td>
-                <Link to={`/catalog/${item.id}`}>{item.title}</Link>
+                <Link to={`${import.meta.env.VITE_BASE_PATH}/catalog/${item.id}`}>{item.title}</Link>
             </td>
             <td>{item.size}</td>
             <td>{item.quantity}</td>
