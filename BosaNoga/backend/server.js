@@ -5,8 +5,8 @@ const Router = require('koa-router');
 const cors = require('koa2-cors');
 const koaBody = require('koa-body');
 
-const categories = JSON.parse(fs.readFileSync('./data/categories.json'));
-const items = JSON.parse(fs.readFileSync('./data/products.json'));
+const categories = require('./data/categories.json');
+const items = require('./data/products.json');
 const topSaleIds = [66, 65, 73];
 const moreCount = 6;
 
