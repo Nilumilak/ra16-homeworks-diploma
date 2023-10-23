@@ -20,9 +20,9 @@ function CatalogItems (): JSX.Element {
     <div className="row">
       {
         state.loading
-          ? <Preloader />
+          ? <>{catalogItemsElements}<Preloader /></>
           : state.error
-            ? <ErrorHandler handleReload={() => dispatch(getCatalogItemsRequest())} />
+            ? <>{catalogItemsElements}<ErrorHandler handleReload={() => dispatch(getCatalogItemsRequest())} /></>
             : catalogItemsElements.length === 0
               ? <NoData />
               : catalogItemsElements

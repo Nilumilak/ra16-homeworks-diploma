@@ -1,7 +1,7 @@
 import type { TopSaleType } from '../redux/slices/topSalesSlice'
 import type { CategorieType } from '../redux/slices/categoriesSlice'
 import type { CatalogItemType } from '../redux/slices/catalogItemsSlice'
-import type { CatalogItemDetailedType } from '../components/CatalogItemDetailed/CatalogItemDetailed'
+import type { CatalogItemDetailedType } from '../components/CatalogItemDetailed/hooks'
 import type { OrderType } from '../components/Cart/Order/Order'
 
 type asyncFetchRequestReturnType<T> = () => Promise<T>

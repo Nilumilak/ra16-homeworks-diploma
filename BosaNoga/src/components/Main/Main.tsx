@@ -5,7 +5,6 @@ import TopSales from "../TopSales/TopSales"
 import Card from "../Card/Card"
 import Preloader from "../Preloader/Preloader"
 import { getTopSalesRequest } from '../../redux/slices/topSalesSlice'
-import { getCategoriesRequest } from '../../redux/slices/categoriesSlice'
 import ErrorHandler from '../ErrorHandler/ErrorHandler'
 
 
@@ -16,7 +15,6 @@ function Main() {
 
   useEffect(() => {
     dispatch(getTopSalesRequest())
-    dispatch(getCategoriesRequest())
   }, [])
 
   return (

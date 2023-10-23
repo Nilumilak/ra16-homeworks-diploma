@@ -1,4 +1,4 @@
-import type { CatalogItemDetailedType } from '../CatalogItemDetailed'
+import type { CatalogItemDetailedType } from '../hooks'
 
 type ItemTableProps = {
   item: CatalogItemDetailedType | null
