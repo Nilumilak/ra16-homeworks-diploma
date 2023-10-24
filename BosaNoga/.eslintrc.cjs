@@ -23,7 +23,8 @@ module.exports = {
     "@typescript-eslint/consistent-type-definitions": ["error", "type"],
     "@typescript-eslint/strict-boolean-expressions": 0,
     "react-hooks/exhaustive-deps": 0,
-    "react-refresh/only-export-components": 0
+    "react-refresh/only-export-components": 0,
+    "@typescript-eslint/no-non-null-assertion": 0
   },
-  ignorePatterns: ['vite-env.d.ts', 'vite.config.ts', 'main.tsx', 'backend/']
+  ignorePatterns: ['vite-env.d.ts', 'vite.config.ts', 'backend/', '.eslintrc.cjs']
 }
