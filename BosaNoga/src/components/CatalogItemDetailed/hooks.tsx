@@ -24,24 +24,24 @@ type CatalogItemDetailedType = {
   sizes: SizeType[]
 }
 
-export default function useFetchCatalogItem (): [CatalogItemDetailedType | null, boolean, boolean, () => void] {
+export default function useFetchCatalogItem (): [CatalogItemDetailedType | null, string | null, boolean, () => void] {
   const { id } = useParams<{ id: string }>()
   const [item, setItem] = useState<CatalogItemDetailedType | null>(null)
-  const [error, setError] = useState<boolean>(false)
+  const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState<boolean>(false)
 
   function fetchCatalogItemDetailed (): void {
     if (id) {
       setLoading(true)
-      setError(false)
+      setError(null)
       void getCatalogItemDetailed(id)
         .then(response => {
           setItem(response)
           setLoading(false)
         })
-        .catch(() => {
+        .catch((error) => {
           setLoading(false)
-          setError(true)
+          setError(error)
         })
     }
   }

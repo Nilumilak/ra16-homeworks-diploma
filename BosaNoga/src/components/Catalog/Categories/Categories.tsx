@@ -3,8 +3,7 @@ import { useAppSelector, useAppDispatch } from '../../../redux/hooks'
 import { changeCurrentCategory } from '../../../redux/slices/catalogItemsSlice'
 import { getCategoriesRequest } from '../../../redux/slices/categoriesSlice'
 import { Link } from 'react-router-dom'
-import ErrorHandler from '../../ErrorHandler/ErrorHandler'
-import Preloader from '../../Preloader/Preloader'
+import FetchingComponent from '../../FetchingComponent/FetchingComponent'
 
 type CategoriesProps = {
   currentId: number
@@ -36,18 +35,19 @@ function Categories ({ currentId }: CategoriesProps): JSX.Element {
   return (
     <>
       <ul className="catalog-categories nav justify-content-center">
-        {
-          state.loading
-            ? <Preloader />
-            : state.error
-              ? <ErrorHandler handleReload={() => dispatch(getCategoriesRequest())} />
-              : <>
-                <li key={0} className="nav-item">
-                  <Link onClick={() => { handleClick(0) }} className={currentId === 0 ? 'nav-link active' : 'nav-link'} to='.'>Все</Link>
-                </li>
-                {categoriesElements}
-              </>
-        }
+        <FetchingComponent
+          data={
+            <>
+              <li key={0} className="nav-item">
+                <Link onClick={() => { handleClick(0) }} className={currentId === 0 ? 'nav-link active' : 'nav-link'} to='.'>Все</Link>
+              </li>
+              {categoriesElements}
+            </>
+          }
+          loadingState={state.loading}
+          errorState={state.error}
+          reFetchFunction={() => dispatch(getCategoriesRequest())}
+        />
       </ul>
     </>
   )

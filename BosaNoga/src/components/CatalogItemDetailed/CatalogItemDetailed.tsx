@@ -3,11 +3,10 @@ import { useNavigate } from 'react-router-dom'
 import ItemTable from './ItemTable/ItemTable'
 import Size from './Size/Size'
 import Quantity from './Quantity/Quantity'
-import Preloader from '../Preloader/Preloader'
 import { useAppDispatch } from '../../redux/hooks'
 import { addCartItem } from '../../redux/slices/cartSlice'
-import ErrorHandler from '../ErrorHandler/ErrorHandler'
 import useFetchCatalogItem from './hooks'
+import FetchingComponent from '../FetchingComponent/FetchingComponent'
 
 function CatalogItemDetailed (): JSX.Element {
   const [item, error, loading, fetchCatalogItemDetailed] = useFetchCatalogItem()
@@ -33,11 +32,9 @@ function CatalogItemDetailed (): JSX.Element {
 
   return (
     <section className="catalog-item">
-      {loading
-        ? <Preloader />
-        : error
-          ? <ErrorHandler handleReload={() => { fetchCatalogItemDetailed() }} />
-          : <>
+      <FetchingComponent
+        data={
+          <>
             <h2 className="text-center">{item?.title}</h2>
             <div className="row">
               <div className="col-5">
@@ -66,7 +63,11 @@ function CatalogItemDetailed (): JSX.Element {
               </div>
             </div>
           </>
-      }
+        }
+        loadingState={loading}
+        errorState={error}
+        reFetchFunction={() => { fetchCatalogItemDetailed() }}
+      />
     </section>
   )
 }
